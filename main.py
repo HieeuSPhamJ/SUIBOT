@@ -65,7 +65,7 @@ async def verify(ctx):
 + BẠn sẽ gặp đội ngũ dịch giả kiến thức thì ít mà tấu hài bằng gg dịch là nhiều
 + Nơi trú ẩn của các teito, winner ẩn danh.
 + Giao lưu cùng Sủi trúa, người tiên phong trong việc truyền đạo sủi tới tận nửa kia trái đất.
-+Sv nhiều tài lẻ: làm game, hát hò, hoạ sĩ, buckfoi, vvvv...
++ Sv nhiều tài lẻ: làm game, hát hò, hoạ sĩ, buckfoi, vvvv...
 + Lâu lâu nó dảk vãi lone.
 + Cướp waifu như cướp kẹo con nít!
 + Bot nhạc Đường tôi chở em về độc quyền: Hoàngkun!
@@ -164,7 +164,7 @@ async def ping(ctx):
             'Đồng chí cần gì vậy?', 'Đồng chí ping tôi làm gì?',
             'Tôi đang bận, xin đồng chí đừng làm phiền', 'Cút!!',
             'Biến đi, bố mày đang bận!',
-            ' không liên quan nhưng đồng chí đã like Fanpage SUITEAM chưa? https://www.facebook.com/mgk.transteam'
+            'Không liên quan nhưng đồng chí đã like Fanpage SUITEAM chưa? https://www.facebook.com/mgk.transteam'
         ]
     await ctx.send(random.choice(answer))
 
