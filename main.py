@@ -81,7 +81,7 @@ https://cdn.discordapp.com/attachments/764510929500373023/862976888531320852/vid
 async def help(ctx):
     embed = discord.Embed(title='HƯỚNG DẪN CỦA S.U.I',
                           description='',
-                          colour=discord.Colour.blue())   
+                          colour=discord.Colour.blue())
     embed.set_thumbnail(url=client.user.avatar_url)
     embed.add_field(name='s+ping', value='Gọi cho tôi', inline=False)
     embed.add_field(name='s+kick <đối tượng>',
@@ -139,32 +139,26 @@ async def ping(ctx):
             'Thưa ngài, đến giờ Trans rồi.',
             'Dạ thưa, phát hiện vài kẻ lười biếng không làm việc. Tôi nên xử trí như nào?',
             'Tôi có nên tống hết bọn Edit vô tù không ạ?'
-
         ]
     elif ctx.author.id == makato:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
-            'H-187, Code của ngài đây ạ',
-            'Xin chào Makato, cậu cần gì ở tôi?',
+            'H-187, Code của ngài đây ạ', 'Xin chào Makato, cậu cần gì ở tôi?',
             'Makato à, đến giờ đi ngủ rồi đấy',
             'Edit chưa mà còn ở đây thế Makato?'
         ]
     elif ctx.author.id == iaman:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
-            'Ngài tham mưu trưởng cần gì ở tôi?',
-            'Đến giờ đi ỉa rồi ngài!'
+            'Ngài tham mưu trưởng cần gì ở tôi?', 'Đến giờ đi ỉa rồi ngài!'
         ]
     elif ctx.author.id == HieeuSPhamJ:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
             'Ngài cần trảm đứa nào vậy?'
-        ]    
-    elif ctx.author.id == rias:
-        answer = [
-            'Ping nữa tôi đấm!!',
-            'Câm mẹ mồm vào!!'
         ]
+    elif ctx.author.id == rias:
+        answer = ['Ping nữa tôi đấm!!', 'Câm mẹ mồm vào!!']
     else:
         answer = [
             'Đồng chí cần gì vậy?', 'Đồng chí ping tôi làm gì?',
@@ -277,20 +271,21 @@ async def mute_error(ctx, error):
 @has_permissions(manage_messages=True)
 async def unmute(ctx, member: discord.Member, *, reason='____'):
     guild = ctx.guild
-    mutedRole = discord.utils.get(guild.roles, id=tunhan) 
+    mutedRole = discord.utils.get(guild.roles, id=tunhan)
     await member.remove_roles(mutedRole, reason=reason)
     embed = discord.Embed(title='TÒA ÁN TỐI CAO',
-                              description='Lệnh ân xá',
-                              colour=discord.Colour.blue())
+                          description='Lệnh ân xá',
+                          colour=discord.Colour.blue())
     embed.set_thumbnail(url=member.avatar_url)
     embed.add_field(name='Người ra lệnh',
-                        value=ctx.author.mention,
-                        inline=False)
+                    value=ctx.author.mention,
+                    inline=False)
     embed.add_field(name='Đối tượng', value=member.mention, inline=False)
     embed.add_field(name='Lý do', value=reason, inline=False)
     channel = client.get_channel(mutechannel)
     await ctx.send(embed=embed)
     await channel.send(embed=embed)
+
 
 @unmute.error
 async def unmute_error(ctx, error):
