@@ -60,7 +60,7 @@ async def verify(ctx):
     channel = client.get_channel(chung)
     await channel.send(
         f'''Rạp xiếc trung ương Sủiteam xin chào đón bạn {ctx.author.mention}
-Ở SỦiteam bạn có thể:
+Ở Sủiteam bạn có thể:
 + 1p mới vô, bạn sẽ biến thành gay (?)
 + BẠn sẽ gặp đội ngũ dịch giả kiến thức thì ít mà tấu hài bằng gg dịch là nhiều
 + Nơi trú ẩn của các teito, winner ẩn danh.
@@ -68,7 +68,7 @@ async def verify(ctx):
 + Sv nhiều tài lẻ: làm game, hát hò, hoạ sĩ, buckfoi, vvvv...
 + Lâu lâu nó dảk vãi lone.
 + Cướp waifu như cướp kẹo con nít!
-+ Bot nhạc Đường tôi chở em về độc quyền: Hoàngkun!
++ Bot nhạc **Đường tôi chở em về** độc quyền: Hoàngkun!
 + Gái không nhiều nhưng chăm online.
 + Gặp gỡ các idol giới trẻ.
 + Tôm chúa, tôm hùm, tôm sông, nói chung là lắm tôm vcl!
@@ -145,7 +145,8 @@ async def ping(ctx):
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
             'H-187, Code của ngài đây ạ', 'Xin chào Makato, cậu cần gì ở tôi?',
             'Makato à, đến giờ đi ngủ rồi đấy',
-            'Edit chưa mà còn ở đây thế Makato?'
+            'Edit chưa mà còn ở đây thế Makato?',
+            'Triệu Tử Ma, mừng ngài trở về'
         ]
     elif ctx.author.id == iaman:
         answer = [
@@ -158,7 +159,7 @@ async def ping(ctx):
             'Ngài cần trảm đứa nào vậy?'
         ]
     elif ctx.author.id == rias:
-        answer = ['Ping nữa tôi đấm!!', 'Câm mẹ mồm vào!!']
+        answer = ['Welcome hắc diệt simplỏd', 'Câm mẹ mồm vào!!']
     else:
         answer = [
             'Đồng chí cần gì vậy?', 'Đồng chí ping tôi làm gì?',
