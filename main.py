@@ -156,7 +156,8 @@ async def ping(ctx):
     elif ctx.author.id == HieeuSPhamJ:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
-            'Ngài cần trảm đứa nào vậy?'
+            'Ngài cần trảm đứa nào vậy?',
+            'Tôi có thể bún cua ngài được không?'
         ]
     elif ctx.author.id == rias:
         answer = ['Welcome hắc diệt simplỏd', 'Câm mẹ mồm vào!!']
