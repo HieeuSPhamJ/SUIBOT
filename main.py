@@ -2,6 +2,7 @@ import discord
 import os
 import random
 import asyncio
+import variable
 from discord.ext import commands
 from discord.utils import get
 from discord.ext.commands import has_permissions
@@ -11,38 +12,6 @@ from replit import db
 
 client = commands.Bot(command_prefix='s+')
 client.remove_command('help')
-
-#PERSONAL ID
-HieeuSPhamJ = 480729328175415296
-NightForce = 414264661567864843
-k = 762685268892712981
-mavuong = 453353710186135582
-makato = 561496357722914834
-iaman = 457836892587687946
-hoangkun = 764711096216977428
-rias = 792048455001702421
-
-#ROLE VARIABLE
-tunhan = 762694968930074644
-checkrole = 856054757855461406
-phophong = 751335254249439243
-truongphong = 863332814526349312
-bonker = 861118048739393546
-bonkerpp = 863333286328008704
-kp = 766200283839332393
-suimem = 763763288856068166
-viprole = 766498339612655617
-godofsui = 800242595472080897
-suixuyenvutru = 768896739037413437
-suidividoichophep = 768895709449289738
-suitrieunam = 766499889852448779
-vanvatdieusui = 755978723185917983
-canbosui = 751337663281233981
-botrole = 751339239395950594
-
-#CHANNEL
-chung = 764510929500373023
-mutechannel = 784235323781152769
 
 
 #Check BOT in run
@@ -55,9 +24,9 @@ async def on_ready():
 @client.command()
 async def verify(ctx):
     guild = ctx.guild
-    role = discord.utils.get(guild.roles, id=checkrole)
+    role = discord.utils.get(guild.roles, id=variable.checkrole)
     await ctx.author.add_roles(role)
-    channel = client.get_channel(chung)
+    channel = client.get_channel(variable.chung)
     await channel.send(
         f'''Rạp xiếc trung ương Sủiteam xin chào đón bạn {ctx.author.mention}
 Ở Sủiteam bạn có thể:
@@ -115,22 +84,22 @@ async def test(ctx):
 #s+ping
 @client.command()
 async def ping(ctx):
-    if ctx.author.id == k:
+    if ctx.author.id == variable.k:
         answer = [
             'Chào sếp K', 'Sếp cần gì ở tôi?',
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh'
         ]
-    elif ctx.author.id == mavuong:
+    elif ctx.author.id == variable.mavuong:
         answer = [
             'Ma Vương cần gì ạ!', 'Chào ngài, Ma vương!',
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh'
         ]
-    elif ctx.author.id == hoangkun:
+    elif ctx.author.id == variable.hoangkun:
         answer = [
             'Hát đi ngài!', 'Sếp cần đấm thằng nào vậy?',
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh'
         ]
-    elif ctx.author.id == NightForce:
+    elif ctx.author.id == variable.NightForce:
         answer = [
             'Anh Quý ơi?', 'Sếp cần khử thằng nào vậy?',
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
@@ -140,7 +109,7 @@ async def ping(ctx):
             'Dạ thưa, phát hiện vài kẻ lười biếng không làm việc. Tôi nên xử trí như nào?',
             'Tôi có nên tống hết bọn Edit vô tù không ạ?'
         ]
-    elif ctx.author.id == makato:
+    elif ctx.author.id == variable.makato:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
             'H-187, Code của ngài đây ạ', 'Xin chào Makato, cậu cần gì ở tôi?',
@@ -148,18 +117,20 @@ async def ping(ctx):
             'Edit chưa mà còn ở đây thế Makato?',
             'Triệu Tử Ma, mừng ngài trở về'
         ]
-    elif ctx.author.id == iaman:
+    elif ctx.author.id == variable.iaman:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
-            'Ngài tham mưu trưởng cần gì ở tôi?', 'Đến giờ đi ỉa rồi ngài!'
+            'Ngài tham mưu trưởng cần gì ở tôi?', 'Đến giờ đi ỉa rồi ngài!',
+            '''Anh bạn à...
+Anh bạn có muốn BÚn CUa giảng hòa không?''',
+            'Xách đjt lên mà làm việc đi cái thằng Ỉa Vương này.'
         ]
-    elif ctx.author.id == HieeuSPhamJ:
+    elif ctx.author.id == variable.HieeuSPhamJ:
         answer = [
             'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
-            'Ngài cần trảm đứa nào vậy?',
-            'Tôi có thể bún cua ngài được không?'
+            'Ngài cần trảm đứa nào vậy?', 'Tôi có thể bún cua ngài được không?'
         ]
-    elif ctx.author.id == rias:
+    elif ctx.author.id == variable.rias:
         answer = ['Welcome hắc diệt simplỏd', 'Câm mẹ mồm vào!!']
     else:
         answer = [
@@ -181,33 +152,33 @@ async def svinfo(ctx):
 @client.command()
 async def info(ctx, member: discord.Member):
     guild = ctx.guild
-    if discord.utils.get(guild.roles, id=kp) in member.roles:
+    if discord.utils.get(guild.roles, id=variable.kp) in member.roles:
         role = 'Cố vấn'
-    elif discord.utils.get(guild.roles, id=bonkerpp) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.bonkerpp) in member.roles:
         role = 'Thẩm phán tối cao'
-    elif discord.utils.get(guild.roles, id=bonker) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.bonker) in member.roles:
         role = 'Thẩm phán'
-    elif discord.utils.get(guild.roles, id=truongphong) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.truongphong) in member.roles:
         role = 'Tham mưu trưởng'
-    elif discord.utils.get(guild.roles, id=phophong) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.phophong) in member.roles:
         role = 'Phó tham mưu trưởng'
-    elif discord.utils.get(guild.roles, id=botrole) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.botrole) in member.roles:
         role = 'Đặc vụ toàn quyền'
-    elif discord.utils.get(guild.roles, id=suimem) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.suimem) in member.roles:
         role = 'Thanh tra đặc biệt'
-    elif discord.utils.get(guild.roles, id=viprole) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.viprole) in member.roles:
         role = 'Thanh tra'
-    elif discord.utils.get(guild.roles, id=godofsui) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.godofsui) in member.roles:
         role = 'Điều tra viên cấp cao'
-    elif discord.utils.get(guild.roles, id=suixuyenvutru) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.suixuyenvutru) in member.roles:
         role = 'Điều tra viên cấp cao'
-    elif discord.utils.get(guild.roles, id=suidividoichophep) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.suidividoichophep) in member.roles:
         role = 'Điều tra viên'
-    elif discord.utils.get(guild.roles, id=suitrieunam) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.suitrieunam) in member.roles:
         role = 'Điều tra viên'
-    elif discord.utils.get(guild.roles, id=vanvatdieusui) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.vanvatdieusui) in member.roles:
         role = 'Đặc vụ'
-    elif discord.utils.get(guild.roles, id=canbosui) in member.roles:
+    elif discord.utils.get(guild.roles, id=variable.canbosui) in member.roles:
         role = 'Đặc vụ'
     else:
         role = 'Nhân viên thường'
@@ -225,7 +196,7 @@ async def info(ctx, member: discord.Member):
 @has_permissions(manage_messages=True)
 async def mute(ctx, member: discord.Member, time='___', reason='___'):
     guild = ctx.guild
-    mutedRole = discord.utils.get(guild.roles, id=tunhan)
+    mutedRole = discord.utils.get(guild.roles, id=variable.tunhan)
     time_convert = {"s": 1, "m": 60, "h": 3600, "d": 86400}
     if time == '___':
         await member.add_roles(mutedRole, reason=reason)
@@ -239,7 +210,7 @@ async def mute(ctx, member: discord.Member, time='___', reason='___'):
         embed.add_field(name='Tội phạm', value=member.mention, inline=False)
         embed.add_field(name='Thời gian thi hành án', value=time, inline=False)
         embed.add_field(name='Lý do', value=reason, inline=False)
-        channel = client.get_channel(mutechannel)
+        channel = client.get_channel(variable.mutechannel)
         await ctx.send(embed=embed)
         await channel.send(embed=embed)
     else:
@@ -255,7 +226,7 @@ async def mute(ctx, member: discord.Member, time='___', reason='___'):
         embed.add_field(name='Tội phạm', value=member.mention, inline=False)
         embed.add_field(name='Thời gian thi hành án', value=time, inline=False)
         embed.add_field(name='Lý do', value=reason, inline=False)
-        channel = client.get_channel(mutechannel)
+        channel = client.get_channel(variable.mutechannel)
         await ctx.send(embed=embed)
         await channel.send(embed=embed)
         await asyncio.sleep(tempmute)
@@ -273,7 +244,7 @@ async def mute_error(ctx, error):
 @has_permissions(manage_messages=True)
 async def unmute(ctx, member: discord.Member, *, reason='____'):
     guild = ctx.guild
-    mutedRole = discord.utils.get(guild.roles, id=tunhan)
+    mutedRole = discord.utils.get(guild.roles, id=variable.tunhan)
     await member.remove_roles(mutedRole, reason=reason)
     embed = discord.Embed(title='TÒA ÁN TỐI CAO',
                           description='Lệnh ân xá',
@@ -284,7 +255,7 @@ async def unmute(ctx, member: discord.Member, *, reason='____'):
                     inline=False)
     embed.add_field(name='Đối tượng', value=member.mention, inline=False)
     embed.add_field(name='Lý do', value=reason, inline=False)
-    channel = client.get_channel(mutechannel)
+    channel = client.get_channel(variable.mutechannel)
     await ctx.send(embed=embed)
     await channel.send(embed=embed)
 
