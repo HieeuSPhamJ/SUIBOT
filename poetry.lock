@@ -230,6 +230,14 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "variable"
+version = "0.0.4"
+description = "Forward and Backward Variable Selection"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "werkzeug"
 version = "2.0.1"
 description = "The comprehensive WSGI web application library."
@@ -255,7 +263,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "b2faf9b79bcf9fa2f4c03647d183ad9a433e707449ababa93765a1d757aed10b"
+content-hash = "32a5144ad209d5f81a360a9c0f5d805e75245cb3a5d1d594362e01cf1aa963ea"
 
 [metadata.files]
 aiohttp = [
@@ -440,6 +448,10 @@ typing-extensions = [
 urllib3 = [
     {file = "urllib3-1.26.6-py2.py3-none-any.whl", hash = "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4"},
     {file = "urllib3-1.26.6.tar.gz", hash = "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"},
+]
+variable = [
+    {file = "variable-0.0.4-py2.py3-none-any.whl", hash = "sha256:a5133a6cc55a75f3a9231046a3ec632f2b8945380fae74853d66d75440102704"},
+    {file = "variable-0.0.4.tar.gz", hash = "sha256:efd2e912b4de2c5b03a37818169b65647c8f5ad41ffa2cb51849dc2fedf41461"},
 ]
 werkzeug = [
     {file = "Werkzeug-2.0.1-py3-none-any.whl", hash = "sha256:6c1ec500dcdba0baa27600f6a22f6333d8b662d22027ff9f6202e3367413caa8"},
