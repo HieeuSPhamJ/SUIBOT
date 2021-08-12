@@ -97,6 +97,14 @@ python-versions = "*"
 "discord.py" = ">=1.7.3"
 
 [[package]]
+name = "discord-buttons-plugin"
+version = "0.1.2"
+description = "A simple module to use for buttons in discord.py"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "discord.py"
 version = "1.7.3"
 description = "A Python wrapper for the Discord API"
@@ -176,6 +184,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "ratelimit"
+version = "2.2.1"
+description = "API rate limit decorator"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "replit"
 version = "3.2.4"
 description = "A library for interacting with features of repl.it"
@@ -207,6 +223,29 @@ urllib3 = ">=1.21.1,<1.27"
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
+
+[[package]]
+name = "tatsu"
+version = "5.6.1"
+description = "TatSu takes a grammar in a variation of EBNF as input, and outputs a memoizing PEG/Packrat parser in Python."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+future-regex = ["regex"]
+
+[[package]]
+name = "tatsu.py"
+version = "1.0.4"
+description = "An async python API Wrapper for the Tatsu API."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+aiohttp = ">=3.7.4"
+ratelimit = ">=2.2.1"
 
 [[package]]
 name = "typing-extensions"
@@ -263,7 +302,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "32a5144ad209d5f81a360a9c0f5d805e75245cb3a5d1d594362e01cf1aa963ea"
+content-hash = "5dda56b7cf89dbe143c2f9fe9a23da1f8b6c60ca90458b5fc529147660fbaba0"
 
 [metadata.files]
 aiohttp = [
@@ -336,6 +375,10 @@ colorama = [
 discord = [
     {file = "discord-1.7.3-py3-none-any.whl", hash = "sha256:248d728356e149c818a81b94659047a19305ea1623d4810bbb342f6b7df55f36"},
     {file = "discord-1.7.3.tar.gz", hash = "sha256:846dd3d66888c2e0a8bd9120d8778a0fe088c003a7f6451668497f14e322a304"},
+]
+discord-buttons-plugin = [
+    {file = "discord_buttons_plugin-0.1.2-py3-none-any.whl", hash = "sha256:877327541b321d93707a1f9fa7b086fee19a06193ff523deb406c52ee2d53f24"},
+    {file = "discord_buttons_plugin-0.1.2.tar.gz", hash = "sha256:a0957bb4e151fdf59158b6bca65ba6238b9cb3e9f5b1e046c793d772e86eca04"},
 ]
 "discord.py" = [
     {file = "discord.py-1.7.3-py3-none-any.whl", hash = "sha256:c6f64db136de0e18e090f6752ea68bdd4ab0a61b82dfe7acecefa22d6477bb0c"},
@@ -432,6 +475,9 @@ multidict = [
     {file = "multidict-5.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:7df80d07818b385f3129180369079bd6934cf70469f99daaebfac89dca288359"},
     {file = "multidict-5.1.0.tar.gz", hash = "sha256:25b4e5f22d3a37ddf3effc0710ba692cfc792c2b9edfb9c05aefe823256e84d5"},
 ]
+ratelimit = [
+    {file = "ratelimit-2.2.1.tar.gz", hash = "sha256:af8a9b64b821529aca09ebaf6d8d279100d766f19e90b5059ac6a718ca6dee42"},
+]
 replit = [
     {file = "replit-3.2.4-py3-none-any.whl", hash = "sha256:4fa5895e1e090ba23c179641bc88ab0486d1bea696515aa3147fce55733e29e1"},
     {file = "replit-3.2.4.tar.gz", hash = "sha256:39c660d57c479d321f143a04d75d1297accf24fc91c0113f56d6a279b20e9427"},
@@ -439,6 +485,14 @@ replit = [
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},
     {file = "requests-2.26.0.tar.gz", hash = "sha256:b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"},
+]
+tatsu = [
+    {file = "TatSu-5.6.1-py2.py3-none-any.whl", hash = "sha256:7cf03e15ab170fd91489b855cd8a4942b6cd1ac5e0eabcb852793a716600dbf0"},
+    {file = "TatSu-5.6.1.zip", hash = "sha256:6a4f07aa7bfe9dfbee8015824feaf13f0b1a89577e2ee5a4a62c18630c309d4e"},
+]
+"tatsu.py" = [
+    {file = "tatsu.py-1.0.4-py3-none-any.whl", hash = "sha256:88149cec85b998be7e5c3d7c5cb5c5391acd4e18e050cbe1a05e9f234fc8597b"},
+    {file = "tatsu.py-1.0.4.tar.gz", hash = "sha256:78d63563fa67e3e1d694385e56045809c348757ea575db97cb3e2912d2a4af38"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},

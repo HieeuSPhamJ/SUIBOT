@@ -4,6 +4,7 @@ import random
 import asyncio
 import variable
 import test
+import json
 from discord.ext import commands
 from discord.utils import get
 from discord.ext.commands import has_permissions
@@ -14,9 +15,14 @@ from replit import db
 client = commands.Bot(command_prefix='s+')
 client.remove_command('help')
 
-for filename in os.listdir('./command'):
+for filename in os.listdir('./Mod_command'):
   if filename.endswith('.py'):
-    client.load_extension(f'command.{filename[:-3]}')
+    client.load_extension(f'Mod_command.{filename[:-3]}')
+for filename in os.listdir('./EconomyAndGamble'):
+  if filename.endswith('.py'):
+    client.load_extension(f'EconomyAndGamble.{filename[:-3]}')
+
+
 
 
 

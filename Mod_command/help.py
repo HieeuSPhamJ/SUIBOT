@@ -51,6 +51,11 @@ class Kick(commands.Cog):
             value=
             'Văn mẫu tất nhiên rồi!',
             inline=False)
+        embed.add_field(
+            name='s+gamehelp',
+            value=
+            'Hướng dẫn của các minigame',
+            inline=False)
 
         await ctx.send(embed=embed)
     

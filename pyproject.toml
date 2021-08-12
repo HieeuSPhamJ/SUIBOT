@@ -10,6 +10,9 @@ replit = "^3.2.4"
 discord = "^1.7.3"
 Flask = "^2.0.1"
 variable = "^0.0.4"
+discord-buttons-plugin = "^0.1.2"
+"tatsu.py" = "^1.0.4"
+tatsu = "^5.6.1"
 
 [tool.poetry.dev-dependencies]
 

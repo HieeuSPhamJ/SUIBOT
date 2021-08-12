@@ -1,5 +1,21 @@
 {
   "files": {
+    "EconomyAndGamble/shop.py": [
+      {
+        "id": "dc3a1f88-c767-4cf3-a7b4-188b1bea83df",
+        "line": 90,
+        "version": 2202,
+        "index": 3203
+      }
+    ],
+    "main.py": [
+      {
+        "id": "052ef399-bcfd-4e5d-9af3-13ac907ee848",
+        "line": 31,
+        "version": 5832,
+        "index": 693
+      }
+    ],
     "memberspy": [
       {
         "id": "d8ab52ed-c409-4e8b-8b92-2f8e3f5775e9",

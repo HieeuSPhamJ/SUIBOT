@@ -27,7 +27,7 @@ class Kick(commands.Cog):
         await ctx.send(f"{member.mention}, Bạn đã bị trục xuất!!!")
         await member.kick(reason=reason)
     @kick.error
-    async def kick_error(ctx, error):
+    async def kick_error(self, ctx, error):
         if isinstance(error, CheckFailure):
             await ctx.send("Tôi chỉ nghe lệnh từ cấp trên!")
     

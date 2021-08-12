@@ -41,9 +41,9 @@ class Verify(commands.Cog):
   + Gái không nhiều nhưng chăm online.
   + Gặp gỡ các idol giới trẻ.
   + Tôm chúa, tôm hùm, tôm sông, nói chung là lắm tôm vcl!
-  https://cdn.discordapp.com/attachments/764510929500373023/862976888531320852/video0.mov
   ''')
-
+        await channel.send(file=discord.File('./file/intro.mov'))
+        await channel.send(file=discord.File('./file/intro.png'))
 
 def setup(client):
     client.add_cog(Verify(client))

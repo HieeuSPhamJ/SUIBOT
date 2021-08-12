@@ -5,6 +5,7 @@ import asyncio
 import roles
 import channels
 import members
+import json
 from discord.ext import commands
 from discord.utils import get
 from discord.ext.commands import has_permissions
@@ -28,18 +29,20 @@ class Info(commands.Cog):
             member = ctx.author
         if discord.utils.get(guild.roles, id=roles.kp) in member.roles:
             role = 'Cố vấn'
+        elif discord.utils.get(guild.roles, id=roles.namdausv) in member.roles:
+            role = 'Tổng thống S.U.I'
         elif discord.utils.get(guild.roles, id=roles.bonkerpp) in member.roles:
             role = 'Thủ tướng'
         elif discord.utils.get(guild.roles, id=roles.bonker) in member.roles:
-            role = 'Thẩm phán'
+            role = 'Thống tướng'
         elif discord.utils.get(guild.roles, id=roles.truongphong) in member.roles:
-            role = 'Tham mưu trưởng'
+            role = 'Đại tướng'
         elif discord.utils.get(guild.roles, id=roles.phophong) in member.roles:
-            role = 'Phó tham mưu trưởng'
+            role = 'Trung tướng'
         elif discord.utils.get(guild.roles, id=roles.botrole) in member.roles:
-            role = 'Đặc vụ toàn quyền'
+            role = 'Thiếu tướng'
         elif discord.utils.get(guild.roles, id=roles.suimem) in member.roles:
-            role = 'Thanh tra đặc biệt'
+            role = 'Đại tá'
         elif discord.utils.get(guild.roles, id=roles.viprole) in member.roles:
             role = 'Thanh tra'
         elif discord.utils.get(guild.roles, id=roles.godofsui) in member.roles:
@@ -56,13 +59,27 @@ class Info(commands.Cog):
             role = 'Đặc vụ'
         else:
             role = 'Nhân viên thường'
+        
+        
+        with open("./bank.json","r") as f:
+          users = json.load(f)
+        if not str(member.id) in users:
+          users[str(member.id)] = {}
+          users[str(member.id)]['wallet'] = 0
+
+        wallet = users[str(member.id)]['wallet']
 
         embed = discord.Embed(title='Tên nhân viên:',
                               description=member.mention,
                               colour=discord.Colour.blue())
         embed.set_thumbnail(url=member.avatar_url)
         embed.add_field(name='Chức vụ:', value=role, inline=False)
+        embed.add_field(name='Tiền còn lại:', value=wallet, inline=False)
+
         await ctx.send(embed=embed)
+
+        with open("./bank.json","w") as f:
+          json.dump(users, f)
 
 
 def setup(client):
