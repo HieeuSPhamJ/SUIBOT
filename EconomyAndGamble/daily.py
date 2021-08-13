@@ -23,7 +23,22 @@ class Daily(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-      print('Add is working.')
+      print('Daily is working.')
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+      with open("./bank.json","r") as f:
+          users = json.load(f)
+
+      if not str(message.author.id) in users:
+          users[str(message.author.id)] = {}
+          users[str(message.author.id)]["wallet"] = 0
+          users[str(message.author.id)]['totalbet'] = 0
+
+      users[str(message.author.id)]["wallet"] += random.randint(1,10)
+
+      with open("./bank.json","w") as f:
+          json.dump(users, f)
 
     @commands.command()
     async def daily(self,ctx):
@@ -36,8 +51,9 @@ class Daily(commands.Cog):
           userstime[str(ctx.author.id)] = {}
           userstime[str(ctx.author.id)]['time'] = 0
         if not str(ctx.author.id) in users:
-          userstime[str(ctx.author.id)] = {}
+          users[str(ctx.author.id)] = {}
           users[str(ctx.author.id)]["wallet"] = 0
+          users[str(ctx.author.id)]['totalbet'] = 0
 
         if userstime[str(ctx.author.id)]["time"] != now.day:
           earn = random.randint(10,1000)

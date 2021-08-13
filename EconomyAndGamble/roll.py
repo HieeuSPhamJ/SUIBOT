@@ -29,12 +29,15 @@ class Roll(commands.Cog):
           return
         with open("./bank.json","r") as f:
           users = json.load(f)
+
         if not str(ctx.author.id) in users:
           users[str(ctx.author.id)] = {}
           users[str(ctx.author.id)]['wallet'] = 0
+          users[str(ctx.author.id)]['totalbet'] = 0
+
         wallet = users[str(ctx.author.id)]['wallet']
         if wallet >= bet:
-          deal = random.randint(0,30)
+          deal = random.randint(0,17)
           if deal == 0:
             deal = 'green'
           elif deal % 2 == 0:
@@ -63,6 +66,7 @@ class Roll(commands.Cog):
           elif choose == 'green':
             choose = '🟢'
           users[str(ctx.author.id)]['wallet'] += bet
+          users[str(ctx.author.id)]['totalbet'] += abs(bet)
           wallet = users[str(ctx.author.id)]['wallet']
           embed = discord.Embed(title='Roll',
                                 description=desc,

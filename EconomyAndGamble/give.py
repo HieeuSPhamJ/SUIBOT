@@ -24,11 +24,17 @@ class Give(commands.Cog):
 
     @commands.command()
     async def give(self, ctx, member: discord.Member, *, money=0):
-        if wallet < 0:
+        if money < 0:
           await ctx.send("Tiền không thể là số âm!")
           return
         with open("./bank.json", "r") as f:
             users = json.load(f)
+            
+        if not str(member.id) in users:
+          users[str(member.id)] = {}
+          users[str(member.id)]['wallet'] = 0
+          users[str(member.id)]['totalbet'] = 0
+
         money = abs(money)
         if users[str(ctx.author.id)]['wallet'] >= money:
             users[str(ctx.author.id)]['wallet'] -= money

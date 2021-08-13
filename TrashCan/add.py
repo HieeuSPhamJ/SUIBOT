@@ -33,6 +33,7 @@ class Add(commands.Cog):
         if not str(member.id) in users:
           users[str(member.id)] = {}
           users[str(member.id)]['wallet'] = 0
+          users[str(member.id)]['totalbet'] = 0
           
         users[str(member.id)]['wallet'] += int(wallet)
         with open("./bank.json","w") as f:

@@ -24,11 +24,18 @@ class Roulette(commands.Cog):
 
     @commands.command()
     async def roulette(self,ctx, bet = 0):
+      with open("./bank.json", "r") as f:
+        users = json.load(f)
+      
+      if not str(ctx.author.id) in users:
+          users[str(ctx.author.id)] = {}
+          users[str(ctx.author.id)]['wallet'] = 0
+          users[str(ctx.author.id)]['totalbet'] = 0  
+
       if bet <= 0:
         await ctx.send('Số tiền không hợp lệ!')
         return
-      with open("./bank.json", "r") as f:
-        users = json.load(f)
+
       wallet = users[str(ctx.author.id)]['wallet']
       if wallet < bet:
         await ctx.send('Số tiền không hợp lệ!')
@@ -71,6 +78,7 @@ class Roulette(commands.Cog):
             bet = -bet
 
           users[str(ctx.author.id)]['wallet'] += bet
+          users[str(ctx.author.id)]['totalbet'] += abs(bet)
           wallet = users[str(ctx.author.id)]['wallet']
 
           embed = discord.Embed(title='Roulette',
@@ -91,6 +99,7 @@ class Roulette(commands.Cog):
             bet = -bet
 
           users[str(ctx.author.id)]['wallet'] += bet
+          users[str(ctx.author.id)]['totalbet'] += bet
           wallet = users[str(ctx.author.id)]['wallet']
 
           embed = discord.Embed(title='Roulette',
@@ -111,6 +120,7 @@ class Roulette(commands.Cog):
             bet = -bet
 
           users[str(ctx.author.id)]['wallet'] += bet
+          users[str(ctx.author.id)]['totalbet'] += abs(bet)
           wallet = users[str(ctx.author.id)]['wallet']
 
           embed = discord.Embed(title='Roulette',
@@ -132,6 +142,7 @@ class Roulette(commands.Cog):
             bet = -bet
 
           users[str(ctx.author.id)]['wallet'] += bet
+          users[str(ctx.author.id)]['totalbet'] += abs(bet)
           wallet = users[str(ctx.author.id)]['wallet']
 
           embed = discord.Embed(title='Roulette',
