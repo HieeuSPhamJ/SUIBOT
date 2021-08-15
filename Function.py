@@ -7,6 +7,8 @@ import channels
 import members
 import json
 import io
+import glob
+import requests
 from discord.ext import commands
 from discord.utils import get
 from io import BytesIO, StringIO
@@ -77,9 +79,17 @@ def rankfilter(wallet):
 
 def bgfilter(member):
     background = Image.open("./file/profilecard.png").convert("RGBA")
-    if member.id == members.HieeuSPhamJ:
-      background = Image.open("./file/bg/HieeuSPhamJ.png").convert("RGBA")
-    elif member.id == members.mavuong:
-      background = Image.open("./file/bg/mavuong.png").convert("RGBA")
-    
+    with open("./background.json","r") as f:
+      bgs = json.load(f)
+      
+    if str(member.id) in bgs:
+      bg = bgs[str(member.id)]['background']
+      response = requests.get(bg)
+      image_bytes = io.BytesIO(response.content)
+      img = image_bytes
+      background = Image.open(image_bytes).convert("RGBA")
+
+
+    with open("./background.json","w") as f:
+      json.dump(bgs, f)
     return background

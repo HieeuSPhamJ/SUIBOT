@@ -24,6 +24,7 @@ class Daily(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
       print('Daily is working.')
+      #print(now.day)
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -35,7 +36,8 @@ class Daily(commands.Cog):
           users[str(message.author.id)]["wallet"] = 0
           users[str(message.author.id)]['totalbet'] = 0
 
-      users[str(message.author.id)]["wallet"] += random.randint(1,10)
+      if message.channel.id == channels.chung:
+          users[str(message.author.id)]["wallet"] += random.randint(1,10)
 
       with open("./bank.json","w") as f:
           json.dump(users, f)
@@ -57,7 +59,7 @@ class Daily(commands.Cog):
 
         if userstime[str(ctx.author.id)]["time"] != now.day:
           earn = random.randint(10,1000)
-          await ctx.send(f'{ctx.author.mention} đã nhận được {earn}!!!')
+          await ctx.send(f'Ngày {now.day}, {ctx.author.mention} đã nhận được {earn}!!!')
           users[str(ctx.author.id)]["wallet"] += earn
           userstime[str(ctx.author.id)]['time'] = now.day
         else:
