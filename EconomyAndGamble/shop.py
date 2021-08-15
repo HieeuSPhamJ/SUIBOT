@@ -90,13 +90,55 @@ class Shop(commands.Cog):
           embedother.add_field(name='2. Theme info',
                               value='Khung của info',
                               inline=False)
-          embedother.add_field(name='2. Background info',
-                              value='Background của info',
+          embedother.add_field(name='3. Tùy chỉnh background info',
+                              value='100000',
                               inline=False)
           embedother.add_field(name='Tổng số tiền của bạn:',
                               value=users[str(ctx.author.id)]['wallet'],
                               inline=False)
           await ctx.send(embed=embedother)
+
+          try:
+            mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=10)
+
+          except asyncio.TimeoutError:
+            await ctx.send('Lỗi')
+          
+          if mess.content.lower() == '1':
+            await ctx.send('Tính năng chưa có!')
+          elif mess.content.lower() == '2':
+            await ctx.send('Tính năng chưa có!')
+          elif mess.content.lower() == '3':
+            #await ctx.send('Tính năng chưa có!')
+            if users[str(ctx.author.id)]['wallet'] < 100000:
+              await ctx.send('Bạn không đủ tiền!')
+              return
+            await ctx.send('Bạn chắc không?(y/n)')
+            try:
+              mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=10)
+            except asyncio.TimeoutError:
+              await ctx.send('Lỗi')
+
+            message = mess.content.lower()
+            if message == 'y':
+              with open("./background.json","r") as f:
+                bgs = json.load(f)
+
+              bgs[str(ctx.author.id)] = {}
+              bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
+              bgs[str(ctx.author.id)]['check'] = 1
+              users[str(ctx.author.id)]['wallet'] -= 100000
+              await ctx.send('Done!!')
+
+              with open("./background.json","w") as f:
+                json.dump(bgs, f)
+            else:
+              await ctx.send('Lỗi!!')
+            
+
+
+
+
 
         elif mess.content.lower() == '2':
             embed = discord.Embed(title='SHOP S.U.I',
