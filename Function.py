@@ -83,13 +83,36 @@ def bgfilter(member):
       bgs = json.load(f)
       
     if str(member.id) in bgs:
-      bg = bgs[str(member.id)]['background']
-      response = requests.get(bg)
-      image_bytes = io.BytesIO(response.content)
-      img = image_bytes
-      background = Image.open(image_bytes).convert("RGBA")
+      if 'check' in bgs[str(member.id)]:
+        if bgs[str(member.id)]['check'] == 1:
+          bg = bgs[str(member.id)]['background']
+          response = requests.get(bg)
+          image_bytes = io.BytesIO(response.content)
+          img = image_bytes
+          background = Image.open(image_bytes).convert("RGBA")
 
 
     with open("./background.json","w") as f:
       json.dump(bgs, f)
     return background
+
+def basefilter(member):
+  with open("./background.json","r") as f:
+      bgs = json.load(f)
+  base = Image.open("./file/profilecard.png").convert("RGBA")
+  if str(member.id) in bgs:
+    if 'theme' in bgs[str(member.id)]:
+      if bgs[str(member.id)]['theme'] == 1:
+        base = Image.open("./file/profilecard.png").convert("RGBA")
+      if bgs[str(member.id)]['theme'] == 2:
+        base = Image.open("./file/profilecard2.png").convert("RGBA")
+      if bgs[str(member.id)]['theme'] == 3:
+        base = Image.open("./file/profilecard3.png").convert("RGBA")
+      if bgs[str(member.id)]['theme'] == 4:
+        base = Image.open("./file/profilecard4.png").convert("RGBA")
+      if bgs[str(member.id)]['theme'] == 5:
+        base = Image.open("./file/profilecard5.png").convert("RGBA")
+  with open("./background.json","w") as f:
+      json.dump(bgs, f)
+
+  return base

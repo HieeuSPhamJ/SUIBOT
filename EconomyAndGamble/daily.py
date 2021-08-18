@@ -15,7 +15,6 @@ from discord.ext.commands.cooldowns import BucketType
 from host import host
 from replit import db
 
-now = datetime.datetime.now()
 
 class Daily(commands.Cog):
     def __init__(self, client):
@@ -44,6 +43,7 @@ class Daily(commands.Cog):
 
     @commands.command()
     async def daily(self,ctx):
+        now = datetime.datetime.now()
         with open("./timetoearn.json","r") as f:
           userstime = json.load(f)
         with open("./bank.json","r") as f:
@@ -58,7 +58,7 @@ class Daily(commands.Cog):
           users[str(ctx.author.id)]['totalbet'] = 0
 
         if userstime[str(ctx.author.id)]["time"] != now.day:
-          earn = random.randint(10,1000)
+          earn = random.randint(10,500)
           await ctx.send(f'Ngày {now.day}, {ctx.author.mention} đã nhận được {earn}!!!')
           users[str(ctx.author.id)]["wallet"] += earn
           userstime[str(ctx.author.id)]['time'] = now.day
@@ -75,6 +75,7 @@ class Daily(commands.Cog):
     @commands.command()
     @has_permissions(kick_members=True)
     async def resetdaily(self,ctx):
+      now = datetime.datetime.now()
       with open("./timetoearn.json","r") as f:
           userstime = json.load(f)
       for i in userstime:

@@ -62,7 +62,7 @@ class Info(commands.Cog):
 
         name = str(member)
         joined = member.joined_at.strftime("%b %Y")
-        base = Image.open("./file/profilecard.png").convert("RGBA")
+        base = Function.basefilter(member)
         background = Function.bgfilter(member).resize((1105,691))
 
         draw = ImageDraw.Draw(base)

@@ -52,6 +52,18 @@ class Kick(commands.Cog):
             'Văn mẫu tất nhiên rồi!',
             inline=False)
         embed.add_field(
+            name='s+addbg <link ảnh>',
+            value='Chỉnh chỉnh BG ở Info (ảnh up lên discord rồi copy link cũng được, ảnh nên để độ phân giải là 1105, 691 thì sẽ hạn chế lỗi)',
+            inline=False)
+        embed.add_field(
+            name='s+removebg',
+            value='Dùng sẻ reset BG khi up ảnh lỗi!!',
+            inline=False)
+        embed.add_field(
+            name='s+shop',
+            value='SHOP S.U.I',
+            inline=False)
+        embed.add_field(
             name='s+gamehelp',
             value=
             'Hướng dẫn của các minigame',

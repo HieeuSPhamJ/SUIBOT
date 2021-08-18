@@ -77,7 +77,7 @@ class Shop(commands.Cog):
           mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=10)
             
         except asyncio.TimeoutError:
-          await ctx.send('Lỗi')
+          await ctx.send('Quá thời gian!!')
 
         if mess.content.lower() == '1':
           embedother = discord.Embed(title='SHOP S.U.I',
@@ -91,7 +91,7 @@ class Shop(commands.Cog):
                               value='Khung của info',
                               inline=False)
           embedother.add_field(name='3. Tùy chỉnh background info',
-                              value='100000',
+                              value='15000',
                               inline=False)
           embedother.add_field(name='Tổng số tiền của bạn:',
                               value=users[str(ctx.author.id)]['wallet'],
@@ -102,22 +102,103 @@ class Shop(commands.Cog):
             mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=10)
 
           except asyncio.TimeoutError:
-            await ctx.send('Lỗi')
+            await ctx.send('Quá thời gian!!')
           
           if mess.content.lower() == '1':
             await ctx.send('Tính năng chưa có!')
           elif mess.content.lower() == '2':
-            await ctx.send('Tính năng chưa có!')
+            #await ctx.send('Tính năng chưa có!')
+            embedtheme = discord.Embed(title='SHOP S.U.I',
+                                      description='',
+                                      colour=discord.Colour.blue())
+            embedtheme.set_thumbnail(url=self.client.user.avatar_url)
+            embedtheme.add_field(name='1. Theme Gốc - 0', value='[Ảnh minh họa](https://media.discordapp.net/attachments/877375163786739722/877375297908015114/profilecard.png)', inline=False)
+            embedtheme.add_field(name='2. Theme 2 - 1500', value='[Ảnh minh họa](https://cdn.discordapp.com/attachments/877375163786739722/877375245089136660/profilecard2.png)', inline=False)
+            embedtheme.add_field(name='3. Theme 3 - 2000', value='[Ảnh minh họa](https://cdn.discordapp.com/attachments/877375163786739722/877375250503983144/profilecard3.png)', inline=False)
+            embedtheme.add_field(name='4. Theme 4 - 10000', value='[Ảnh minh họa](https://cdn.discordapp.com/attachments/877375163786739722/877393717265301524/profilecard4.png)', inline=False)
+            embedtheme.add_field(name='5. Theme 5 - 10000', value='[Ảnh minh họa](https://cdn.discordapp.com/attachments/877375163786739722/877393705286389760/profilecard5.png)', inline=False)
+            embedtheme.add_field(name='Tổng số tiền của bạn:',
+                                value=users[str(ctx.author.id)]['wallet'],
+                                inline=False)
+            await ctx.send(embed=embedtheme)
+            try:
+              mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=60)
+
+            except asyncio.TimeoutError:
+              await ctx.send('Quá thời gian!!')
+
+            with open("./background.json","r") as f:
+                bgs = json.load(f)
+            
+            if mess.content.lower() == '1':
+              price = 0
+              if users[str(ctx.author.id)]['wallet'] < price:
+                await ctx.send('Bạn không đủ tiền!')
+                return
+              users[str(ctx.author.id)]['wallet'] -= price
+              bgs[str(ctx.author.id)] = {}
+              bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
+              bgs[str(ctx.author.id)]['theme'] = 1
+              await ctx.send('Done!!')
+
+            if mess.content.lower() == '2':
+              price = 1500
+              if users[str(ctx.author.id)]['wallet'] < price:
+                await ctx.send('Bạn không đủ tiền!')
+                return
+              users[str(ctx.author.id)]['wallet'] -= price
+              bgs[str(ctx.author.id)] = {}
+              bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
+              bgs[str(ctx.author.id)]['theme'] = 2
+              await ctx.send('Done!!')
+
+            if mess.content.lower() == '3':
+              price = 2000
+              if users[str(ctx.author.id)]['wallet'] < price:
+                await ctx.send('Bạn không đủ tiền!')
+                return
+              users[str(ctx.author.id)]['wallet'] -= price
+              bgs[str(ctx.author.id)] = {}
+              bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
+              bgs[str(ctx.author.id)]['theme'] = 3
+              await ctx.send('Done!!')
+            
+            if mess.content.lower() == '4':
+              price = 10000
+              if users[str(ctx.author.id)]['wallet'] < price:
+                await ctx.send('Bạn không đủ tiền!')
+                return
+              users[str(ctx.author.id)]['wallet'] -= price
+              bgs[str(ctx.author.id)] = {}
+              bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
+              bgs[str(ctx.author.id)]['theme'] = 4
+              await ctx.send('Done!!')
+            
+            if mess.content.lower() == '5':
+              price = 10000
+              if users[str(ctx.author.id)]['wallet'] < price:
+                await ctx.send('Bạn không đủ tiền!')
+                return
+              users[str(ctx.author.id)]['wallet'] -= price
+              bgs[str(ctx.author.id)] = {}
+              bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
+              bgs[str(ctx.author.id)]['theme'] = 5
+              await ctx.send('Done!!')
+
+            with open("./background.json","w") as f:
+                json.dump(bgs, f)
+
           elif mess.content.lower() == '3':
             #await ctx.send('Tính năng chưa có!')
-            if users[str(ctx.author.id)]['wallet'] < 100000:
+            price = 15000
+            if users[str(ctx.author.id)]['wallet'] < price:
               await ctx.send('Bạn không đủ tiền!')
               return
             await ctx.send('Bạn chắc không?(y/n)')
             try:
               mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=10)
             except asyncio.TimeoutError:
-              await ctx.send('Lỗi')
+              await ctx.send('Quá thời gian!!')
 
             message = mess.content.lower()
             if message == 'y':
@@ -127,7 +208,7 @@ class Shop(commands.Cog):
               bgs[str(ctx.author.id)] = {}
               bgs[str(ctx.author.id)]['background'] = "https://cdn.discordapp.com/attachments/873964288216289360/876382844145004584/transparent_profilecard.png"
               bgs[str(ctx.author.id)]['check'] = 1
-              users[str(ctx.author.id)]['wallet'] -= 100000
+              users[str(ctx.author.id)]['wallet'] -= price
               await ctx.send('Done!!')
 
               with open("./background.json","w") as f:
@@ -163,7 +244,7 @@ class Shop(commands.Cog):
               mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=60)
             
             except asyncio.TimeoutError:
-              await ctx.send('Lỗi')
+              await ctx.send('Quá thời gian!!')
 
             message = mess.content.lower()
             choose = mess.content.lower()
@@ -180,7 +261,7 @@ class Shop(commands.Cog):
                 mess = await self.client.wait_for('message', check=lambda m: m.author == ctx.author and m.channel, timeout=10)
 
               except asyncio.TimeoutError:
-                await ctx.send('Lỗi')
+                await ctx.send('Quá thời gian!!')
 
               message = mess.content.lower()
               if message == 'y':
