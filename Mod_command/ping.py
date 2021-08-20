@@ -51,7 +51,7 @@ class Ping(commands.Cog):
         elif ctx.author.id == members.makato:
             answer = [
                 'Tôi, đặc vụ toàn quyền của Tổ Chức Điều Tra Vũ Trụ Bí Mật, xin nghe lệnh',
-                'H-187, Code của ngài đây ạ', 'Xin chào Makato, cậu cần gì ở tôi?',
+                'Xin chào Makato, cậu cần gì ở tôi?',
                 'Makato à, đến giờ đi ngủ rồi đấy',
                 'Edit chưa mà còn ở đây thế Makato?',
                 'Triệu Tử Ma, mừng ngài trở về'
