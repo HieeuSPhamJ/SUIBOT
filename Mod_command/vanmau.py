@@ -57,6 +57,10 @@ Bài văn của 1 tôm chúa Nagato '''
         elif member.id == members.hoangem:
             answer = ''' Hòn em, 1 nhân vật nổi tiếng trong SuiTeam với những câu nói thấm thía lòng người cùng những lần cố gắng Cosplay thành ‘Ngôi sao Giải Trí’ đẳng cấp. Hơn nữa, Hòn em đã tôi luyện, mài dũa khả năng tự hủy đẳng cấp, giúp anh ấy trở thành một trong những nhân vật ảnh hưởng nhất Sủi World. Tuy nhiên, liệu đây có phải là tác dụng phụ của việc tập luyện hay không mà các fetish của anh ấy luôn vượt xa tầm hiểu biết của con người, cùng trình độ Liên Minh đẳng cấp khi anh ấy có khả năng Convert mọi tướng thành Role ‘Đỡ Đòn’. Tuy vậy, anh ấy vẫn là một trong những người mạnh nhất khi luôn luôn làm đại ca trong tù và quả não của Monsieur Tuna khi đ*o biết đặt tên gì cho ngầu. Tôi xin tóm lại Hòn em trong 3 từ:
 "Gay vãi loz"'''
+        elif member.id == members.HieeuSPhamJ:
+            answer = ''' Xưa tôi có quen được 1 ông bạn bằng tuổi tôi, dáng người cao khoẻ cùng với trí thông minh của 1 loài khỉ tiến hoá bậc cao, lúc nhỏ thì nó chưa học nhiều cơ mà đến khi nó đụng đến IT thì đột nhiên nó lại thành ~~Hiếu PC~~ Hiếu IOS.
+Sáng nó đi học thêm chiều lại đi nghịch code linh tinh, giờ nghe nói nó cũng đi đầu quân cho công ti nào đó, hình như là BKAK. Mà vụ này là do nó phát hiện ra cách để chống hacker bằng cách rút dây nguồn server và đái vào sv.
+Nhưng mà giờ nó được công ty Mỹ mời vào làm remote nên lương giờ cũng được 3k$, 4k$. Cơ mà drama của nó phải nhiều vô kể. Hôm nó quen được con người yêu xinh đẹp, bố mẹ nó cũng ưng ý lắm cơ mà con em của người yêu nó lại không ưng, đợt nó bị lộ ra là làm IT cho BKAK thì em nó lại giục bố mẹ cưới ngay, nhưng mà do dịch chứ không là nó cũng cưới từ năm ngoái rồi.'''
         else:
             answer = 'Đồng chí này chưa có văn mẫu!'
         await ctx.send(answer)
