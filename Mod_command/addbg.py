@@ -1,5 +1,4 @@
 import discord
-import os
 import random
 import asyncio
 import roles
@@ -10,8 +9,6 @@ from discord.ext import commands
 from discord.utils import get
 from discord.ext.commands import has_permissions
 from discord.ext.commands import CheckFailure
-from host import host
-from replit import db
 
 
 class Addbackground(commands.Cog):

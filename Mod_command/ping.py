@@ -9,8 +9,7 @@ from discord.ext import commands
 from discord.utils import get
 from discord.ext.commands import has_permissions
 from discord.ext.commands import CheckFailure
-from host import host
-from replit import db
+
 
 class Ping(commands.Cog):
     def __init__(self, client):

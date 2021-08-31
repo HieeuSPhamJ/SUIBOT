@@ -13,8 +13,6 @@ from discord.utils import get
 from io import BytesIO, StringIO
 from discord.ext.commands import has_permissions
 from discord.ext.commands import CheckFailure
-from host import host
-from replit import db
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 
